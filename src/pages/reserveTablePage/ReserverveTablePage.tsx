@@ -73,6 +73,7 @@ const ReserveTablePage = () => {
             type="submitReserve"
             text={'Забронировать стол'}
             onClick={handleOpen}
+            selectedTable={selectedTable}
           />
           <Modal open={isOpen} onClose={handleClose} className={styles.modal}>
             <div className={styles.modalContent}>
