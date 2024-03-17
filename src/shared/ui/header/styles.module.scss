@@ -1,4 +1,3 @@
-
 .root {
   display: flex;
 
@@ -20,36 +19,16 @@
 }
 
 .header {
-  &Text {
-    line-height: 14px;
-    font-size: 10px;
-    font-weight: 400;
-    color: #fff;
-  }
   &Logo {
-    font-size: 10px;
-    font-weight: 600;
-  }
-  &Nav {
-    display: flex;
-    gap: 20px;
+    width: 72px;
+    height: 40px;
   }
 }
-
 
 @media screen and (min-width: 375px) {
   .root {
     .container {
       min-width: 345px;
-    }
-  }
-
-  .header {
-    &Text {
-      font-size: 11px;
-    }
-    &Logo {
-      font-size: 11px;
     }
   }
 }
@@ -58,15 +37,6 @@
   .root {
     .container {
       min-width: 360px;
-    }
-  }
-
-  .header {
-    &Text {
-      font-size: 12px;
-    }
-    &Logo {
-      font-size: 12px;
     }
   }
 }
