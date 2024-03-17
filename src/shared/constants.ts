@@ -1,55 +1,73 @@
 import { rovesnikLogo, dorozhkaLogo, skrepkaLogo } from './assets'
+import { rovesnik1F, rovesnik2F, rovesnik3F } from './assets'
 import {
   ApiResponse,
   BarFilter,
   BarName,
   EventSliceState,
   EventType,
+  EventTypeShort,
   Filter,
   ReservationInfo,
   TableData,
 } from './types'
 
-export const mockApiResponse: ApiResponse = {
-  events: [
-    {
-      id: 1,
-      name: 'День святого валентина',
-      date: '14 февраля',
-      time: 'с 20:00',
-      place: '3 этаж бара Ровесник',
-      price: 'от 400₽',
-      type: 'Бесплатная вечеринка',
-      description:
-        'ROCKET — артист, который не нуждается в представлении. С каждым релизом его фан-база растёт в геометрической прогрессии. Его музыка — одна из самых вайбовых в отечественной индустрии. Пожалуй, каждый из нас слышал такие треки, как: «Город», «Everything Is Fine», «Monday» и, конечно же, «Инкассатор».',
-    },
-    {
-      id: 2,
-      name: 'Любое другое событие',
-      date: '2 марта',
-      time: 'с 19:00',
-      place: '3 этаж бара Скрепка',
-      price: 'от 400₽',
-      type: 'Депозит',
-      description:
-        'ROCKET — артист, который не нуждается в представлении. С каждым релизом его фан-база растёт в геометрической прогрессии. Его музыка — одна из самых вайбовых в отечественной индустрии. Пожалуй, каждый из нас слышал такие треки, как: «Город», «Everything Is Fine», «Monday» и, конечно же, «Инкассатор».',
-    },
-    {
-      id: 3,
-      name: 'День космонавта',
-      date: '14 февраля',
-      time: 'с 22:00',
-      place: '3 этаж бара Ровесник',
-      price: 'от 400₽',
-      type: 'Бесплатная вечеринка',
-      description:
-        'ROCKET — артист, который не нуждается в представлении. С каждым релизом его фан-база растёт в геометрической прогрессии. Его музыка — одна из самых вайбовых в отечественной индустрии. Пожалуй, каждый из нас слышал такие треки, как: «Город», «Everything Is Fine», «Monday» и, конечно же, «Инкассатор».',
-    },
-  ],
-}
+export const apiEndpoint =
+  'https://ff68-2a00-1370-8198-8cc0-c17e-b24e-4197-8dd2.ngrok-free.app/api'
+
+export const mockApiResponse: ApiResponse = [
+  {
+    event_id: 2,
+    short_name: 'Вечеринка 1',
+    description:
+      'ROCKET — артист, который не нуждается в представлении. С каждым релизом его фан-база растёт в геометрической прогрессии. Его музыка — одна из самых вайбовых в отечественной индустрии. Пожалуй, каждый из нас слышал такие треки, как: «Город», «Everything Is Fine», «Monday» и, конечно же, «Инкассатор».',
+    img_path:
+      '/home/donqhomo/Desktop/orders/CRM-Rovesnik-Doroshka-Screpka/BackendApp/static/event1.jpg',
+    datetime: '2024-03-18T19:00:00',
+    bar_id: 1,
+    place: '3ий этаж Ровесник / адрес: abcdef',
+    age_restriction: 18,
+    event_type: 'deposit',
+    price: 1000.0,
+  },
+  {
+    event_id: 3,
+    short_name: 'Вечеринка 2',
+    description:
+      'ROCKET — артист, который не нуждается в представлении. С каждым релизом его фан-база растёт в геометрической прогрессии. Его музыка — одна из самых вайбовых в отечественной индустрии. Пожалуй, каждый из нас слышал такие треки, как: «Город», «Everything Is Fine», «Monday» и, конечно же, «Инкассатор».',
+    img_path:
+      '/home/donqhomo/Desktop/orders/CRM-Rovesnik-Doroshka-Screpka/BackendApp/static/event2.jpg',
+    datetime: '2024-03-19T18:00:00',
+    bar_id: 1,
+    place: '1ый этаж Ровесник / адрес: abcdef',
+    age_restriction: 18,
+    event_type: 'deposit',
+    price: 2000.0,
+  },
+  {
+    event_id: 4,
+    short_name: 'Вечеринка 3',
+    description:
+      'ROCKET — артист, который не нуждается в представлении. С каждым релизом его фан-база растёт в геометрической прогрессии. Его музыка — одна из самых вайбовых в отечественной индустрии. Пожалуй, каждый из нас слышал такие треки, как: «Город», «Everything Is Fine», «Monday» и, конечно же, «Инкассатор».',
+    img_path:
+      '/home/donqhomo/Desktop/orders/CRM-Rovesnik-Doroshka-Screpka/BackendApp/static/event3.jpg',
+    datetime: '2024-03-20T18:00:00',
+    bar_id: 1,
+    place: '2ой этаж Ровесник / адрес: abcdef',
+    age_restriction: 18,
+    event_type: 'free',
+    price: 0.0,
+  },
+]
+
+export const shortEventTypeToWordsMap = new Map<EventTypeShort, EventType>([
+  ['free', 'Бесплатная вечеринка'],
+  ['deposit', 'Депозит'],
+  ['event', 'Ивент'],
+] as [EventTypeShort, EventType][])
 
 export const initialEventSliceState: EventSliceState = {
-  ...mockApiResponse,
+  events: [...mockApiResponse],
   initialApiResponse: mockApiResponse,
   currentBar: 'ровесник',
   filter: 'anyFilter',
@@ -93,7 +111,6 @@ export const barToLogoMap = new Map<BarName, string>([
   ['skrepka', skrepkaLogo],
 ] as [BarName, string][])
 
-// и что-то ещё, я забыл что
 export const eventTypeDescriptionsMap = new Map<EventType, string>([
   [
     'Бесплатная вечеринка',
@@ -103,6 +120,7 @@ export const eventTypeDescriptionsMap = new Map<EventType, string>([
     'Депозит',
     'Вечеринка будет проходить за депозит. Тут должно быть пояснение что такое депозит и зачем он нужен.',
   ],
+  ['Ивент', 'чето чето четоче точе точ еточе то'],
 ] as [EventType, string][])
 export const defaultGuestListNumber = 2
 
@@ -181,3 +199,5 @@ for (let i = 0; i < maxGuestCount; i++) {
   if (i < 5) tableCapacityCases.set(i, 'человека')
   else tableCapacityCases.set(i, 'человек')
 }
+
+export const rovesnikFloorPaths = [rovesnik1F, rovesnik2F, rovesnik3F]

@@ -1,7 +1,6 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { FormEvent } from 'react'
 import styles from './styles.module.scss'
-import { TableData } from '../../types'
 
 type Props = {
   className?: string
@@ -20,16 +19,8 @@ type Props = {
     | 'reserveTable'
     | 'changeReserve'
   onClick: (e?: any) => void
-  selectedTable?: TableData | null
 }
-
-const Button = ({ className, text, type, onClick, selectedTable }: Props) => {
-  let buttonText = text
-
-  if (type === 'submitReserve' && selectedTable) {
-    buttonText = `Забронировать стол №${selectedTable.id}`
-  }
-
+const Button = ({ className, text, type, onClick }: Props) => {
   const buttonClasses = classNames(className, styles.root, {
     [styles.blue]: type === 'blue',
     [styles.white]: type === 'white',
@@ -47,7 +38,7 @@ const Button = ({ className, text, type, onClick, selectedTable }: Props) => {
 
   return (
     <div className={buttonClasses} onClick={onClick}>
-      {buttonText}
+      {text}
     </div>
   )
 }

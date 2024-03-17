@@ -12,12 +12,14 @@ import { reservationsApiMockResponse } from '../../shared/constants'
 import { convertTimestampToDateString } from '../../shared/utils'
 import Spinner from '../../compoments/Spinner'
 import { useNavigate } from 'react-router-dom'
+import { ArrowLeftIcon, ArrowRightIcon } from '@mui/x-date-pickers'
 
 const ReserveTablePage = () => {
   const navigate = useNavigate()
   const [shouldShowMap, setShouldShowMap] = useState(true)
   const [isOpen, setIsOpen] = useState(false)
   const [currentStep, setCurrentStep] = useState(1)
+  const [selectedFloor, setSelectedFloor] = useState(1)
   const selectedTable: TableData = {
     capacity: 4,
     id: 1,
@@ -26,6 +28,8 @@ const ReserveTablePage = () => {
   } // useSelector(selectTableUpForReservation)
   const selectedReservationDate: ReservationInfo =
     reservationsApiMockResponse[1] // useSelector(selectCurrentReservationDate(selectedTable.id))
+  const [maxFloor, setMaxFloor] = useState(3)
+
   const reserveTable = async () => {
     await setTimeout(() => Promise.resolve(true), 1000)
     setCurrentStep(2)
@@ -52,7 +56,6 @@ const ReserveTablePage = () => {
           </p>
           <ReservationForm />
           <div className={styles.btnTypeChange}>
-            {/* стили менются в зависимости от shouldShowMap */}
             <button
               className={shouldShowMap ? styles.active : ''}
               onClick={() => handleTypeChange('map')}
@@ -66,14 +69,31 @@ const ReserveTablePage = () => {
               {'Таблица'}
             </button>
           </div>
-          {shouldShowMap && <BarMap />}
+          {shouldShowMap && (
+            <div style={{ display: 'flex' }}>
+              <div
+                onClick={() =>
+                  setSelectedFloor((prev) => Math.max(prev - 1, 1))
+                }
+              >
+                <ArrowLeftIcon />
+              </div>
+              <BarMap floor={selectedFloor} />
+              <div
+                onClick={() =>
+                  setSelectedFloor((prev) => Math.min(prev + 1, maxFloor))
+                }
+              >
+                <ArrowRightIcon />
+              </div>
+            </div>
+          )}
           <TableList />
           <Button
             className={styles.submitReserve}
             type="submitReserve"
             text={'Забронировать стол'}
             onClick={handleOpen}
-            selectedTable={selectedTable}
           />
           <Modal open={isOpen} onClose={handleClose} className={styles.modal}>
             <div className={styles.modalContent}>
