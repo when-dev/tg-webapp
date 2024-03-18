@@ -31,7 +31,7 @@
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
     "@mui/x-date-pickers": "^6.19.4",
-    "@react-three/drei": "^9.101.0",
+    "@react-three/drei": "^9.102.6",
     "@react-three/fiber": "^8.15.19",
     "@react-three/postprocessing": "^2.16.2",
     "@reduxjs/toolkit": "2.1.0",
