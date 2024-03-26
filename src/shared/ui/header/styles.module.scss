@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+
+  height: 60px;
+  width: 100%;
+  background-color: rgb(14, 15, 46);
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+
+  .container {
+    min-width: 290px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+.header {
+  &Logo {
+    width: 72px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .root {
+    .container {
+      min-width: 345px;
+    }
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .root {
+    .container {
+      min-width: 360px;
+    }
+  }
+}

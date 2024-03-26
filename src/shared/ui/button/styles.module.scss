@@ -1,0 +1,178 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+  background-color: #7179ff;
+  border-radius: 100px;
+
+  height: 25px;
+
+  &.blue, 
+  &.white,
+  &.textRed {
+    width: 260px;
+    height: 32px;
+  }
+
+  &.blue {
+    margin-top: 31px;
+    background-color: #7179ff;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+  }
+  &.white {
+    margin-top: 31px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+  }
+  &.textRed {
+    margin-top: 31px;
+    background-color: #fff;
+    color: #ff0000;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+  }
+  &.widthBtn {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  &.toBook {
+     width: 90vw;
+     margin: 0 auto;
+  }
+  &.whiteBtnToBuy {
+    width: 290px;
+    height: 40px;
+    background: #fff;
+    color: rgba(10, 18, 50, 1);
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.2px;
+  }
+  &.checkAfisha {
+    width: 290px;
+    background: #fff;
+    padding: 16px;
+    color: rgba(10, 18, 50, 1);
+    font-size: 16px;
+    line-height: 19.2px;
+    font-weight: 500;
+  }
+  &.whiteChangeReserve {
+    width: 260px;
+    height: 36px;
+    background: #fff;
+    color: rgba(10, 18, 50, 1);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.2px;
+  }
+  &.submitBtn {
+    width: 290px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 19.2px;
+  }
+  &.submitReserve {
+    background: #fff;
+    color: rgba(10, 18, 50, 1);
+    width: 290px;
+    height: 38px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19.2px;
+  }
+  &.reserveTable {
+    background: #fff;
+    color: rgba(10, 18, 50, 1);
+    width: 250px;
+    height: 38px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19.2px;
+  }
+  &.changeReserve {
+    background: rgba(88, 97, 202, 1);
+    border: 1.5px solid white;
+    color: white;
+    width: 250px;
+    height: 38px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19.2px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .root {
+    &.blue,
+    &.white,
+    &.textRed { 
+      width: 315px;
+      height: 42px;
+      font-size: 14px;
+    }
+    &.whiteBtnToBuy {
+      width: 345px;
+      height: 46px;
+    }
+    &.checkAfisha {
+      width: 345px;
+      height: 46px;
+      font-size: 18px;
+      line-height: 19.2px;
+    }
+    &.whiteChangeReserve {
+      width: 315px;
+      height: 46px;
+      font-size: 16px;
+    }
+    &.submitBtn {
+      width: 345px;
+      height: 46px;
+      font-size: 16px;
+      line-height: 19.2px;
+    }
+    &.submitReserve {
+      width: 345px;
+      height: 46px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 19.2px;
+    }
+    &.reserveTable {
+      width: 315px;
+      height: 38px;
+      font-size: 16px;
+    }
+    &.changeReserve {
+      width: 315px;
+      height: 38px;
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .root {
+    font-weight: 600;
+    font-size: 12px;
+    height: 31px;
+
+    &.blue,
+    &.white,
+    &.textRed { 
+      height: 42px;
+      font-size: 14px;
+    }
+  }
+}
