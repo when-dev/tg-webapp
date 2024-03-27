@@ -197,7 +197,7 @@ devDependencies:
     specifier: ^3.2.5
     version: 3.2.5
   prettier-plugin-tailwindcss:
-    specifier: ^0.5.11
+    specifier: ^0.5.12
     version: 0.5.12(prettier@3.2.5)
   sass:
     specifier: ^1.70.0
